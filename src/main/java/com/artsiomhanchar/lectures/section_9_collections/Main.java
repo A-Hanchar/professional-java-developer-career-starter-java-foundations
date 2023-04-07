@@ -5,6 +5,7 @@ import com.artsiomhanchar.lectures.section_8_more_oop.employees.*;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 
@@ -36,7 +37,8 @@ public class Main {
         IEmployee employee = null;
 
 //        List employees =  new ArrayList<IEmployee>();
-        List<IEmployee> employees =  new ArrayList();
+//        List<IEmployee> employees =  new ArrayList();
+        List<IEmployee> employees =  new LinkedList();
 
         while (peopleMatcher.find()) {
             employee = Employee.createEmployee(peopleMatcher.group());
@@ -44,7 +46,21 @@ public class Main {
             employees.add(employee);
         }
 
+        List<String> removalNames = new ArrayList<>();
+        removalNames.add("Wilma5");
+        removalNames.add("Barney4");
+        removalNames.add("Fred2");
+
         for (IEmployee worker : employees) {
+//            Impossible to remove node from the LinkedList in the loop
+//            if (worker instanceof Employee) {
+//                Employee updatedWorker = (Employee) worker;
+//
+//                if ( removalNames.contains(updatedWorker.firstName)) {
+//                    employees.remove(worker);
+//                }
+//            }
+
             System.out.println(worker.toString());
             totalSalaries += worker.getSalary();
         }
