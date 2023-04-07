@@ -47,12 +47,13 @@ public class Main {
             employees.add(employee);
         }
 
-        List<String> removalNames = new ArrayList<>();
-        removalNames.add("Wilma5");
-        removalNames.add("Barney4");
-        removalNames.add("Fred2");
+//        List<String> undesirebles = new ArrayList<>();
+//        undesirebles.add("Wilma5");
+//        undesirebles.add("Barney4");
+//        undesirebles.add("Fred2");
 
-        removeUndesirables(employees, removalNames);
+        List<String> undesirebles = List.of("Wilma5", "Barney4", "Fred2");
+        removeUndesirables(employees, undesirebles);
 
         for (IEmployee worker : employees) {
 //            Impossible to remove node from the LinkedList in this type of loop
@@ -63,6 +64,20 @@ public class Main {
 //                    employees.remove(worker);
 //                }
 //            }
+
+//            Remove from List
+//            IEmployee first = employees.get(0);
+//            IEmployee second = employees.get(1);
+//            IEmployee third = employees.get(2);
+//
+//            employees.remove(first);
+//            employees.remove(second);
+//            employees.remove(third);
+//
+//            or
+//            employees.remove(0);
+//            employees.remove(1);
+//            employees.remove(2);
 
             System.out.println(worker.toString());
             totalSalaries += worker.getSalary();
