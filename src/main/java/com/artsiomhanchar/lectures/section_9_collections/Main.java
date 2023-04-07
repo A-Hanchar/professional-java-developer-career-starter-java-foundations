@@ -5,6 +5,7 @@ import com.artsiomhanchar.lectures.section_8_more_oop.employees.*;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -51,8 +52,10 @@ public class Main {
         removalNames.add("Barney4");
         removalNames.add("Fred2");
 
+        removeUndesirables(employees, removalNames);
+
         for (IEmployee worker : employees) {
-//            Impossible to remove node from the LinkedList in the loop
+//            Impossible to remove node from the LinkedList in this type of loop
 //            if (worker instanceof Employee) {
 //                Employee updatedWorker = (Employee) worker;
 //
@@ -66,12 +69,24 @@ public class Main {
         }
 
         NumberFormat currencyInstance = NumberFormat.getCurrencyInstance();
-        System.out.printf("The total payout should be %s", currencyInstance.format(totalSalaries));
+        System.out.printf("The total payout should be %s%n", currencyInstance.format(totalSalaries));
 
         WeirdoRecord larry = new WeirdoRecord("David", "Larry", LocalDate.of(1950, 1, 1));
         System.out.println(larry.firstName());
 
         WeirdoRecord jack = new WeirdoRecord("Snake", "Jake");
         jack.sayHello();
+    }
+
+    private static void removeUndesirables(List<IEmployee> employees, List<String> removalNames) {
+        for (Iterator<IEmployee> it = employees.iterator(); it.hasNext();) {
+           IEmployee worker = it.next();
+
+            if (worker instanceof Employee updatedWorker) {
+                if ( removalNames.contains(updatedWorker.firstName)) {
+                    it.remove();
+                }
+            }
+        }
     }
 }
