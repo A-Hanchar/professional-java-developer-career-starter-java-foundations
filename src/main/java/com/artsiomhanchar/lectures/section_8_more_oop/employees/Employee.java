@@ -60,14 +60,14 @@ public abstract class Employee implements IEmployee {
                 case "Manager" -> new Manager(employeeText);
                 case "Analyst" -> new Analyst(employeeText);
                 case "CEO" -> new CEO(employeeText);
-//                default -> new DummyEmployee();
+                default -> new DummyEmployee();
 //                default -> new Employee() {
 //                    @Override
 //                    public double getBonus() {
 //                        return 0;
 //                    }
 //                };
-                default -> () -> 0; // Lambda expression
+//                default -> () -> 0; // Lambda expression
             };
         }
 
@@ -84,12 +84,25 @@ public abstract class Employee implements IEmployee {
     public String toString() {
         return String.format("%s, %s: %s. Bonus - %s", lastName, firstName, moneyFormat.format(getSalary()), moneyFormat.format(getBonus()));
     }
-
+//
+//    private final static class DummyEmployee extends Employee implements IEmployee {
+//        @Override
+//        public double getBonus() {
+//            return 0;
+//        }
+//    }
     private final static class DummyEmployee extends Employee {
         @Override
         public double getBonus() {
             return 0;
         }
+    }
+
+    @Override
+    public int compareTo(IEmployee o) {
+        Employee other = (Employee) o;
+
+        return this.lastName.compareTo(other.lastName);
     }
 
     @Override
