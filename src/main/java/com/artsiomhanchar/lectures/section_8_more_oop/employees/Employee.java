@@ -3,6 +3,7 @@ package com.artsiomhanchar.lectures.section_8_more_oop.employees;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,7 +14,7 @@ public abstract class Employee implements IEmployee {
     protected String employeeDetails;
     private int salary = 0;
 
-    private static final String peopleRegex = "(?<lastName>\\w+),\\s*(?<firstName>\\w+),\\s*(?<dob>\\d{1,2}/\\d{1,2}/\\d{4}),\\s*(?<role>\\w+)(?:,\\s*\\{(?<details>.*)\\})?\\n";
+    private static final String peopleRegex = "(?<lastName>\\w+),\\s*(?<firstName>\\w+),\\s*(?<dob>\\d{1,2}/\\d{1,2}/\\d{4}),\\s*(?<role>\\w+)(?:,\\s*\\{(?<details>.*)\\})?(\\n,\\s)?";
     public static final Pattern PEOPLE_PATTERN = Pattern.compile(peopleRegex);
 
     protected final Matcher peopleMatcher;
@@ -89,6 +90,18 @@ public abstract class Employee implements IEmployee {
         public double getBonus() {
             return 0;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee employee)) return false;
+        return firstName.equals(employee.firstName) && lastName.equals(employee.lastName) && dob.equals(employee.dob);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, dob);
     }
 
     public record Jumper(String firstName, String lastName) {}

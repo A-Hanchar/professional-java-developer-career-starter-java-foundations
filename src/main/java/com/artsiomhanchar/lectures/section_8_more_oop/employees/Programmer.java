@@ -1,5 +1,6 @@
 package com.artsiomhanchar.lectures.section_8_more_oop.employees;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,5 +39,18 @@ public class Programmer extends Employee implements IEmployee, Apple, IChef {
 
     public void setIq(int iq) {
         this.iq = iq;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Programmer that)) return false;
+        if (!super.equals(o)) return false;
+        return iq == that.iq;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), iq);
     }
 }
