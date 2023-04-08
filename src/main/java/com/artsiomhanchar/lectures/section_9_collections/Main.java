@@ -4,10 +4,7 @@ import com.artsiomhanchar.lectures.section_8_more_oop.employees.*;
 
 import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 
 public class Main {
@@ -39,7 +36,8 @@ public class Main {
 
 //        List employees =  new ArrayList<IEmployee>();
 //        List<IEmployee> employees =  new ArrayList();
-        List<IEmployee> employees =  new LinkedList();
+//        List<IEmployee> employees =  new LinkedList();
+        List<IEmployee> employees =  new ArrayList<>();
 
         while (peopleMatcher.find()) {
             employee = Employee.createEmployee(peopleMatcher.group());
@@ -52,18 +50,24 @@ public class Main {
 //        undesirebles.add("Barney4");
 //        undesirebles.add("Fred2");
 
-        List<String> undesirebles = List.of("Wilma5", "Barney4", "Fred2");
-        removeUndesirables(employees, undesirebles);
-
-        for (IEmployee worker : employees) {
-//            Impossible to remove node from the LinkedList in this type of loop
-//            if (worker instanceof Employee) {
-//                Employee updatedWorker = (Employee) worker;
+//        List<String> undesirebles = new ArrayList<>(List.of("Wilma5", "Barney4", "Fred2"));
+//        removeUndesirables(employees, undesirebles);
 //
-//                if ( removalNames.contains(updatedWorker.firstName)) {
-//                    employees.remove(worker);
-//                }
-//            }
+//        List<String> newString = new ArrayList<>();
+//        newString.addAll(undesirebles);
+//        System.out.println(newString.size());
+//
+//        newString.clear();
+//        System.out.println(newString.isEmpty());
+
+//        System.out.println("---------");
+//
+//        System.out.println(undesirebles.retainAll(new ArrayList<>(List.of("Wilma5"))));
+
+//        IEmployee third  = employees.get(2);
+//        int indexOfTheThird = employees.indexOf(third);
+//        System.out.println(indexOfTheThird);
+
 
 //            Remove from List
 //            IEmployee first = employees.get(0);
@@ -78,6 +82,25 @@ public class Main {
 //            employees.remove(0);
 //            employees.remove(1);
 //            employees.remove(2);
+
+//        employees.add(0, new Programmer("Flinstone, Fred, 1/1/1900, Programmer, {locpd=2000,yoe=10,iq=140}"));
+
+//        employees.set(0, Employee.createEmployee("Rubble, Betty, 4/4/1915, CEO, {avgStockPrice=300}"));
+
+//        List<IEmployee> subList = employees.subList(0, 4);// [ firstIndex, lastIndex )
+//        subList.toArray();
+//        IEmployee[] subListAsArray = employees.toArray(new IEmployee[0]);
+
+
+        for (IEmployee worker : employees) {
+//            Impossible to remove node from the LinkedList in this type of loop
+//            if (worker instanceof Employee) {
+//                Employee updatedWorker = (Employee) worker;
+//
+//                if ( removalNames.contains(updatedWorker.firstName)) {
+//                    employees.remove(worker);
+//                }
+//            }
 
             System.out.println(worker.toString());
             totalSalaries += worker.getSalary();
