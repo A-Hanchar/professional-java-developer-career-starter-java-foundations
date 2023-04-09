@@ -109,13 +109,18 @@ public abstract class Employee implements IEmployee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return firstName.equals(employee.firstName) && lastName.equals(employee.lastName) && dob.equals(employee.dob);
+        return firstName.equals(employee.firstName) &&
+                lastName.equals(employee.lastName) &&
+                dob.equals(employee.dob) &&
+                getClass().equals(o.getClass());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, dob);
+        return Objects.hash(firstName, lastName, dob, getClass());
     }
+
+
 
     public record Jumper(String firstName, String lastName) {}
 }

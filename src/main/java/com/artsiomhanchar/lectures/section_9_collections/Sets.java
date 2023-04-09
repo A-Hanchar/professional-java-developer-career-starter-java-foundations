@@ -4,10 +4,7 @@ import com.artsiomhanchar.lectures.section_8_more_oop.employees.Employee;
 import com.artsiomhanchar.lectures.section_8_more_oop.employees.IEmployee;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 
 public class Sets {
@@ -40,7 +37,11 @@ public class Sets {
         Matcher peopleMatcher = Employee.PEOPLE_PATTERN.matcher(peopleText);
 
         int totalSalaries = 0;
-        Set<IEmployee> employees =  new HashSet<>();
+
+//      There are methods hashCode and equals in Employee class help to set unique objects into HashSet
+//        Set<IEmployee> employees =  new HashSet<>();
+
+        LinkedHashSet<IEmployee> employees = new LinkedHashSet<>();
 
         while (peopleMatcher.find()) {
             IEmployee employee = Employee.createEmployee(peopleMatcher.group());
@@ -48,6 +49,7 @@ public class Sets {
             employees.add(employee);
         }
 
+//        new ArrayList<>(employees).get(10);
 
         for (IEmployee worker : employees) {
             System.out.println(worker.toString());
