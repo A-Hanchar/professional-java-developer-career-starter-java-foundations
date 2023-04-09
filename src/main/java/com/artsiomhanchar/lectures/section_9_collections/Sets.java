@@ -41,7 +41,12 @@ public class Sets {
 //      There are methods hashCode and equals in Employee class help to set unique objects into HashSet
 //        Set<IEmployee> employees =  new HashSet<>();
 
-        LinkedHashSet<IEmployee> employees = new LinkedHashSet<>();
+//        LinkedHashSet<IEmployee> employees = new LinkedHashSet<>();
+
+//        Based on the compareTo method
+//        TreeSet<IEmployee> employees = new TreeSet<>();
+
+        TreeSet<IEmployee> employees = new TreeSet<>((e1, e2) -> Integer.compare(e1.getSalary(), e2.getSalary()));
 
         while (peopleMatcher.find()) {
             IEmployee employee = Employee.createEmployee(peopleMatcher.group());
