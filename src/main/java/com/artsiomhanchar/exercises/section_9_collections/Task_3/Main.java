@@ -15,5 +15,11 @@ public class Main {
         ownersMap.put("Sarah", car3);
 
         System.out.println(ownersMap);
+
+        for (Map.Entry<String, Car> entry : ownersMap.entrySet()) {
+            // '\t' for tab space between owner name & car details - you could use anything to separate
+            System.out.printf("%s\t%s%n", entry.getKey(), entry.getValue());
+        }
+
     }
 }
