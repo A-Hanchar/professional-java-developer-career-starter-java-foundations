@@ -14,11 +14,12 @@ public class Maps {
 //    protected static Map<String, Integer> salaryMap = new TreeMap<>();
     protected static Map<String, Integer> salaryMap = new LinkedHashMap<>();
 
-    protected static Map<String, IEmployee> employeesMap = new HashMap<>();
+//    protected static Map<String, IEmployee> employeesMap = new HashMap<>();
 
     public static void main(String[] args) {
         String peopleText = """
                 Flinstone, Fred, 1/1/1900, Programmer, {locpd=2000,yoe=10,iq=140}
+                Flinstone, Fred, 1/1/1900, Programmer, {locpd=1000,yoe=10,iq=140}
                 Flinstone2, Fred2, 1/1/1900, Programmer, {locpd=1300,yoe=14,iq=100}
                 Flinstone3, Fred3, 1/1/1900, Programmer, {locpd=2300,yoe=8,iq=105}
                 Flinstone4, Fred4, 1/1/1900, Programmer, {locpd=1630,yoe=3,iq=115}
@@ -44,8 +45,10 @@ public class Maps {
 
             Employee emp = (Employee) employee;
 
-            employeesMap.put(emp.firstName, employee);
-            salaryMap.put(emp.firstName, emp.getSalary());
+//            employeesMap.put(emp.firstName, employee);
+
+//            salaryMap.put(emp.firstName, emp.getSalary());
+            salaryMap.putIfAbsent(emp.firstName, emp.getSalary());
         }
 
 //        for(String key: salaryMap.keySet()) {
@@ -53,11 +56,27 @@ public class Maps {
 //        }
 
         System.out.println(salaryMap);
-        System.out.println(employeesMap);
+        System.out.println(salaryMap.values());
+        System.out.println(salaryMap.keySet());
+        System.out.println(salaryMap.size());
+        System.out.println(salaryMap.entrySet());
+
+        for (Map.Entry<String, Integer> entry: salaryMap.entrySet()) {
+            System.out.printf("Key = %s, Value = %s%n", entry.getKey(), entry.getValue());
+        }
+
+        System.out.println(salaryMap.containsKey("Wilma3"));
+        System.out.println(salaryMap.containsValue(0));
+
+        System.out.println(salaryMap.isEmpty());
+
+//        System.out.println(employeesMap);
     }
 
     public int getSalary(String firstName) {
 //        return employeesMap.get(firstName).getSalary();
-        return salaryMap.get(firstName);
+//        return salaryMap.get(firstName);
+
+        return salaryMap.getOrDefault(firstName, -1);
     }
 }

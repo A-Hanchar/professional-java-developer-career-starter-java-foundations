@@ -14,4 +14,14 @@ public class MapsTest {
 
         assertEquals(2506, salary);
     }
+
+    @Test
+    public void testBadNameToSalary() {
+        Maps main = new Maps();
+
+        main.main(new String[0]);
+        int salary = main.getSalary("xxxxx");
+
+        assertEquals(-1, salary);
+    }
 }
