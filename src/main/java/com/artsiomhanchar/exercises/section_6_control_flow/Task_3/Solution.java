@@ -3,7 +3,7 @@ package com.artsiomhanchar.exercises.section_6_control_flow.Task_3;
 public class Solution {
     public static void main(String[] args) {
         /**
-         * Do #2 again but use a ‘do-while-loop’. (No solutions provided for this one)
+         * Do #2 again but use a "do-while-loop". (No solutions provided for this one)
          */
 
         String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};

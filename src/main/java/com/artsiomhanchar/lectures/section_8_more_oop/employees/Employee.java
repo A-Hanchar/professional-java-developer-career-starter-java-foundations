@@ -3,17 +3,18 @@ package com.artsiomhanchar.lectures.section_8_more_oop.employees;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class Employee implements IEmployee {
-    protected String firstName;
-    protected String lastName;
+    public String firstName;
+    public String lastName;
     protected LocalDate dob;
     protected String employeeDetails;
     private int salary = 0;
 
-    private static final String peopleRegex = "(?<lastName>\\w+),\\s*(?<firstName>\\w+),\\s*(?<dob>\\d{1,2}/\\d{1,2}/\\d{4}),\\s*(?<role>\\w+)(?:,\\s*\\{(?<details>.*)\\})?\\n";
+    private static final String peopleRegex = "(?<lastName>\\w+),\\s*(?<firstName>\\w+),\\s*(?<dob>\\d{1,2}/\\d{1,2}/\\d{4}),\\s*(?<role>\\w+)(?:,\\s*\\{(?<details>.*)\\})?(\\n,\\s)?";
     public static final Pattern PEOPLE_PATTERN = Pattern.compile(peopleRegex);
 
     protected final Matcher peopleMatcher;
@@ -59,14 +60,14 @@ public abstract class Employee implements IEmployee {
                 case "Manager" -> new Manager(employeeText);
                 case "Analyst" -> new Analyst(employeeText);
                 case "CEO" -> new CEO(employeeText);
-//                default -> new DummyEmployee();
+                default -> new DummyEmployee();
 //                default -> new Employee() {
 //                    @Override
 //                    public double getBonus() {
 //                        return 0;
 //                    }
 //                };
-                default -> () -> 0; // Lambda expression
+//                default -> () -> 0; // Lambda expression
             };
         }
 
@@ -83,13 +84,43 @@ public abstract class Employee implements IEmployee {
     public String toString() {
         return String.format("%s, %s: %s. Bonus - %s", lastName, firstName, moneyFormat.format(getSalary()), moneyFormat.format(getBonus()));
     }
-
+//
+//    private final static class DummyEmployee extends Employee implements IEmployee {
+//        @Override
+//        public double getBonus() {
+//            return 0;
+//        }
+//    }
     private final static class DummyEmployee extends Employee {
         @Override
         public double getBonus() {
             return 0;
         }
     }
+
+    @Override
+    public int compareTo(IEmployee o) {
+        Employee other = (Employee) o;
+
+        return this.lastName.compareTo(other.lastName);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee employee)) return false;
+        return firstName.equals(employee.firstName) &&
+                lastName.equals(employee.lastName) &&
+                dob.equals(employee.dob) &&
+                getClass().equals(o.getClass());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, dob, getClass());
+    }
+
+
 
     public record Jumper(String firstName, String lastName) {}
 }

@@ -29,7 +29,7 @@ public class Solution {
          * regex101.com. If you do use the
          * regex tester, be sure to enable it
          * for “java” and note that it does
-         * NOT use double backspaces ‘\’ as
+         * NOT use double backspaces "\" as
          * are needed in the Java IDE.
          */
 
