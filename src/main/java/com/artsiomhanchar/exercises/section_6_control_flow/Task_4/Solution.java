@@ -3,7 +3,7 @@ package com.artsiomhanchar.exercises.section_6_control_flow.Task_4;
 public class Solution {
     public static void main(String[] args) {
         /**
-         * Use an array of days of the week, enhanced ‘for-loop’ and if/else to create the following
+         * Use an array of days of the week, enhanced "for-loop" and if/else to create the following
          * output.
          * We eat pot roast on Sunday
          * We eat spaghetti on Monday
