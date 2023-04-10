@@ -1,0 +1,5 @@
+Allow the cars from exercise 2 to be printed in “natural” order by model.
+1. Store the same cars in a List and sort them. (No code solution provided)
+2. Store the same cars in a List and sort them without implementing any interfaces on the
+Car class.
+3. How could you reverse the sort order?

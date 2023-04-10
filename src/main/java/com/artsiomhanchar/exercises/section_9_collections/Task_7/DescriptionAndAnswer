@@ -1,0 +1,9 @@
+What might be a more memory-efficient collection to use to store millions or billions of
+objects in the order in which they come, if you don’t know exactly how many objects you’ll
+need to store before-hand?
+8. How could you take your col
+
+LinkedList.
+1) need to retain the order in which they come, so you’ll need some type of List.
+2) dealing with millions or billions. ArrayList would work BUT it pre-allocates large chunks of memory whenever it needs to make more space.
+This can be inefficient and wasteful of memory temporarily. A linked list can grow dynamically very efficiently.

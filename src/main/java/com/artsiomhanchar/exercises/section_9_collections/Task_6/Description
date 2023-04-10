@@ -1,0 +1,13 @@
+Same as exercise 5 but allow program to remove a model by passing the model name as
+an argument to the main() method. For example, if you had been getting the following
+output initially:
+Car[make=Tesla, model=3, year=2016]
+Car[make=Tesla, model=Roadster, year=2009]
+Car[make=Tesla, model=S, year=2014]
+Car[make=Tesla, model=X, year=2015]
+Car[make=Tesla, model=Y, year=2017]
+And then you modify the program as instructed and pass in “Roadster” as an argument and rerun, you’d get the following output:
+Car[make=Tesla, model=3, year=2016]
+Car[make=Tesla, model=S, year=2014]
+Car[make=Tesla, model=X, year=2015]
+Car[make=Tesla, model=Y, year=2017]

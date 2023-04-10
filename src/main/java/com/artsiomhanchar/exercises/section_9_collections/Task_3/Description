@@ -1,0 +1,6 @@
+Same as exercise 1 but associate an owner’s first name with each car. Do not add owner’s
+name to your car model class. Print out each owner with their car. Example:
+
+Bob Car[make=Tesla, model=X, year=2015]
+Jenny Car[make=Tesla, model=Y, year=2016]
+Sarah Car[make=Tesla, model=3, year=2019]
