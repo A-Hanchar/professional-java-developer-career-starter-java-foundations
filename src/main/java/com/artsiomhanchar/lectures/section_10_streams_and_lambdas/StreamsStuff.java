@@ -2,12 +2,15 @@ package com.artsiomhanchar.lectures.section_10_streams_and_lambdas;
 
 import com.artsiomhanchar.lectures.section_8_more_oop.employees.Employee;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
 public class StreamsStuff {
+    final static File directory = new File("./\\src\\main\\java\\com\\artsiomhanchar\\lectures\\section_10_streams_and_lambdas\\employees.txt");
+
     public static void main(String[] args) {
         String peopleText = """
                 Flinstone, Fred, 1/1/1900, Programmer, {locpd=2000,yoe=10,iq=140}
@@ -30,7 +33,10 @@ public class StreamsStuff {
                 """;
 
         try {
-            Files.lines(Path.of("C:\\Users\\ahanchar\\Desktop\\professional-java-developer-career-starter-java-foundations\\src\\main\\java\\com\\artsiomhanchar\\lectures\\section_10_streams_and_lambdas\\employees.txt"))
+//            Files.lines(Path.of("C:\\Users\\ahanchar\\Desktop\\professional-java-developer-career-starter-java-foundations\\src\\main\\java\\com\\artsiomhanchar\\lectures\\section_10_streams_and_lambdas\\employees.txt"))
+//                    .forEach(System.out::println);
+
+            Files.lines(Path.of(directory.getAbsolutePath()))
                     .forEach(System.out::println);
         } catch (IOException e) {
             throw new RuntimeException(e);
