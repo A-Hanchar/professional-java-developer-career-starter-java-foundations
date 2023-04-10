@@ -2,6 +2,11 @@ package com.artsiomhanchar.lectures.section_10_streams_and_lambdas;
 
 import com.artsiomhanchar.lectures.section_8_more_oop.employees.Employee;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
+
 public class StreamsStuff {
     public static void main(String[] args) {
         String peopleText = """
@@ -24,11 +29,72 @@ public class StreamsStuff {
                 Rubble, Betty, 4/4/1915, CEO, {avgStockPrice=300}
                 """;
 
+        try {
+            Files.lines(Path.of("C:\\Users\\ahanchar\\Desktop\\professional-java-developer-career-starter-java-foundations\\src\\main\\java\\com\\artsiomhanchar\\lectures\\section_10_streams_and_lambdas\\employees.txt"))
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         peopleText
             .lines()
             .map(Employee::createEmployee)
 //            .map(line -> Employee.createEmployee(line))
             .forEach(System.out::println); // System.out.println("Hello");
 //            .forEach(line -> System.out.println(line)); // System.out.println("Hello");
+
+//        Collection<String> nums = Set.of("one", "two", "three", "four");
+
+//        nums
+//            .stream()
+//            .map(String::hashCode)
+//            .map(Integer::toHexString)
+//            .forEach(System.out::println);
+//
+//        nums.stream().map(String::hashCode).forEach(h -> System.out.printf("%h%n", h));
+
+//        ---------------------------
+
+//        record Car(String make, String model) {}
+//
+//        Stream.of(
+//            new Car("Ford", "Bronco"),
+//            new Car("Tesla", "X"),
+//            new Car("Tesla", "3")
+//        )
+//            .filter(car -> "Tesla".equals(car.make))
+//            .forEach(System.out::println);
+
+        //        ---------------------------
+//
+//        String myVariable = null;
+//        Stream.ofNullable(myVariable)
+//            .forEach(System.out::println);
+
+        //        ---------------------------
+//
+//        IntStream.range(1, 11) // [start, end)
+//            .forEach(System.out::println);
+//
+//        IntStream.rangeClosed(1, 10) // [start, end]
+//            .forEach(System.out::println);
+//
+//        IntStream.rangeClosed(1, 10)
+//            .boxed() // -> Stream<Integer>
+//            .map(String::valueOf)
+//            .map(s -> s.concat("-"))
+//            .forEach(System.out::print);
+//
+//        IntStream.rangeClosed(1, 10)
+//            .mapToObj(String::valueOf)
+//            .map(s -> s.concat("-"))
+//            .forEach(System.out::print);
+
+        //        ---------------------------
+
+        String[] names = {"terry", "sam", "jake"};
+        Arrays.stream(names)
+            .map(String::toUpperCase)
+            .forEach(System.out::println);
     }
 }
