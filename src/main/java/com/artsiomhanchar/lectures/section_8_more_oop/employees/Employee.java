@@ -74,6 +74,14 @@ public abstract class Employee implements IEmployee {
         return new DummyEmployee();
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public int getSalary() {
         return salary;
     }
