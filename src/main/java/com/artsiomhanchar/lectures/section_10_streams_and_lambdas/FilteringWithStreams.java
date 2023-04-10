@@ -27,18 +27,39 @@ public class FilteringWithStreams {
                 Flinstone4, Wilma4, 3/3/1910, Analyst, {projectCount=6}
                 Flinstone5, Wilma5, 3/3/1910, Analyst, {projectCount=9}
                 Rubble, Betty, 4/4/1915, CEO, {avgStockPrice=300}
+                Rubble, Betty, 4/4/1915, CEO11111, {avgStockPrice=300}
                 """;
+
+//        peopleText
+//                .lines()
+//                .map(Employee::createEmployee)
+//                .map(employee -> (Employee) employee)
+////                .distinct() // work with equals method (remove duplicates)
+////                .collect(Collectors.toSet()) // now it's Set
+////                .filter(Predicate.not(employee -> employee.getLastName().equals("N/A")))
+////                .filter(employee -> employee instanceof Programmer)
+////                .filter(Predicate.not(employee -> employee instanceof Programmer || employee.getLastName().equals("N/A")))
+//                .filter(employee -> employee.getSalary() > 5000 && employee.getSalary() < 10000)
+//                .forEach(System.out::println);
+
+        // Additional filtering techniques
+//        Predicate<String> dummyEmployeeSelector = line -> line.contains("CEO11111");
+
+        Predicate<Employee> dummyEmployeeSelector = employee -> "N/A".equals(employee.getLastName());
+        Predicate<Employee> overFiveKSelector = employee -> employee.getSalary() > 5000;
+        Predicate<Employee> noDummyEmployeeAndOverFiveKSalary = dummyEmployeeSelector.negate().and(overFiveKSelector);
 
         peopleText
                 .lines()
+//                .filter(Predicate.not(line -> line.contains("CEO11111")))
+//                .filter(dummyEmployeeSelector.negate())
+//                .filter(((Predicate<String>) line -> line.contains("CEO11111")).negate())
                 .map(Employee::createEmployee)
                 .map(employee -> (Employee) employee)
-//                .distinct() // work with equals method (remove duplicates)
-//                .collect(Collectors.toSet()) // now it's Set
-//                .filter(Predicate.not(employee -> employee.getLastName().equals("N/A")))
-//                .filter(employee -> employee instanceof Programmer)
-//                .filter(Predicate.not(employee -> employee instanceof Programmer || employee.getLastName().equals("N/A")))
-                .filter(employee -> employee.getSalary() > 5000 && employee.getSalary() < 10000)
+//                .filter(dummyEmployeeSelector.negate())
+//                .filter(overFiveKSelector)
+                .filter(noDummyEmployeeAndOverFiveKSalary)
                 .forEach(System.out::println);
+
     }
 }
