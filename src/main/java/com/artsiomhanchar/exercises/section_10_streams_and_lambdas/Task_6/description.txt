@@ -1,0 +1,2 @@
+6. Use only the Streams API and a collection or Stream of Car objects to produce the
+following output: “S, X, 3, Y, Roadster”
