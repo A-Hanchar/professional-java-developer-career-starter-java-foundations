@@ -12,6 +12,8 @@ public class BigData {
 
     public static void main(String[] args) {
         try {
+            long startTime = System.currentTimeMillis();
+
             Stream<String> fileLines = Files
                     .lines(Path.of(directory.getAbsolutePath()));
 
@@ -25,11 +27,28 @@ public class BigData {
 //                            .count()
 //            );
 
-            System.out.println(
-                    fileLines
-                            .skip(1)
-                            .collect(Collectors.counting())
-            );
+//            System.out.println(
+//                    fileLines
+//                            .skip(1)
+//                            .collect(Collectors.counting())
+//            );
+
+            Long result = fileLines
+                    .parallel()
+                    .skip(1) // it's the head with titles
+//                    .limit(10)
+                    .map(line -> line.split(","))
+                    .map(arr -> arr[25])
+                    .mapToLong(salary -> Long.parseLong(salary))
+                    .sum();
+//                    .map(salary -> Long.parseLong(salary))
+//                    .collect(Collectors.summingLong(salary -> Long.parseLong(salary)));
+//                    .forEach(System.out::println);
+
+            long endTime = System.currentTimeMillis();
+
+            System.out.printf("$%,d.00%n", result);
+            System.out.println(endTime - startTime);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
