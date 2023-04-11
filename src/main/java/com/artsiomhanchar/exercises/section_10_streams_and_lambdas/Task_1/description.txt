@@ -1,0 +1,2 @@
+1. Using the same car collection approach as in the last section’s exercises, create a
+collection of cars but use the Streams API to print out only the cars’ model names.
