@@ -1,0 +1,7 @@
+4. Add an additional integer price field to your Car class/record. Use Streams to add total cost
+of all cars in your collection/stream. (Two ways to do this)
+1. Use Streams to find average price of all cars (two ways to do this too) - no code
+provided
+2. How could you do exercise 4 with Streams & BigDecimal (for decimal accuracy)?
+3. How could you do exercise 4.2 but output a formatted money String still using only the
+Streams API? Solution shown in 4.2 solution
