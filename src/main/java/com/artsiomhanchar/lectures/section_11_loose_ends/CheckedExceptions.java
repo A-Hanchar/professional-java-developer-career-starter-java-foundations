@@ -13,7 +13,7 @@ public class CheckedExceptions {
             System.out.println("We were unable to open the file");
 //            throw new RuntimeException(e);
         } finally {
-            System.out.println("Make sure this runs no matter what...");
+            System.out.println("Make sure this runs no matter what..");
         }
     }
 }
