@@ -1,0 +1,2 @@
+Try using Optionals in the chess modeling exercise instead of null values throughout the
+code.

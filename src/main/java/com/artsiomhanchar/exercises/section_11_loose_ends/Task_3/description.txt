@@ -1,0 +1,6 @@
+3. Create a collection of at least five Person objects with first name & last name fields. Add a
+few null objects to the collection in random places. Use an enhanced for-loop to iterate
+over the collection and print out the first names of each person. Use Optional to prevent
+NullPointerException and to print “Unknown” for the first names of null items.
+1. Use the Optional API to display “Unknown” for null entries and entries whose first name
+is shorter than 3 characters.

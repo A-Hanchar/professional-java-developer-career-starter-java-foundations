@@ -1,0 +1,16 @@
+Revise the chess modeling from Section 8, exercise 8 to throw an exception when a chess
+piece tries to move to a square occupied by a friendly piece. Consider what is an
+appropriate type of exception for this. No code solution provided
+
+I’d create a custom subclass of
+RuntimeException and throw it
+on line 27 of ChessBoard instead
+of just returning as it currently
+does. I’d also pass into its
+constructor, info about the
+destination coordinates we
+attempted to move to and maybe
+even what piece is already there
+so that that info could be
+conveyed on the receiving end of
+the exception
