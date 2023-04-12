@@ -59,4 +59,4 @@ out/
 
 ### VS Code ###
 .vscode/
-/src/main/java/com/artsiomhanchar/lectures/section_10_streams_and_lambdas/Hr5m.csv
+/src/main/java/com/artsiomhanchar/lectures/**/Hr5m.csv
