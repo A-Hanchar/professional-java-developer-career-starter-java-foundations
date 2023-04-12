@@ -1,0 +1,4 @@
+4. Assuming you captured user input of a date/time into a String like “July 12, 1984 13:47:00”
+and assuming that date/time occurred at GMT-8, write code to parse that String and
+convert it to GMT-0.
+1. What would that same date/time be after 179 days, 7 hours and 27 minutes in Japan?
