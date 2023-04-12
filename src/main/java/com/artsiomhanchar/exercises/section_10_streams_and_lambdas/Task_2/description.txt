@@ -1,0 +1,2 @@
+How could you use the Streams API to filter out (not show) all cars made before a certain
+year? (If you modeled Car year using the Year date/time class, it has a method isAfter())

@@ -1,0 +1,1 @@
+How could you create a stream of cars without first explicitly creating a collection of cars?
