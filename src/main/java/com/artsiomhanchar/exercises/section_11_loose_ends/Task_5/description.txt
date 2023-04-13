@@ -1,0 +1,8 @@
+5. Write code to determine the current age of your own country.
+    5.1. Write code to determine your own age exactly. No code provided
+    5.2. Write code to determine how many days until the next New Year (or any holiday you
+choose). Note/hint: ChronoUnit has enums for various time intervals which also have
+useful methods.
+    5.3. If you began an activity at 9:37:20 and stopped at 19:13:41, how best can you write
+code to determine how much time elapsed?
+        5.3.1. What if you want to know the elapsed time in minutes?
